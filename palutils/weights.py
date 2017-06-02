@@ -11,6 +11,8 @@ def store_weights(sess, output_path):
 
         if var.name in ['Variable:0', 'Variable_2:0']:
             var = tf.transpose(var, perm=[3, 0, 1, 2])
+        elif var.name in ['Variable_4:0', 'Variable_6:0']:
+            var = tf.transpose(var, perm=[3, 1, 0, 2])
 
         value = sess.run(var)
 
